@@ -54,6 +54,7 @@ router.get("/data/:zip", function(req, res, next) {
 })
 
 router.get("/data/:loanNumber", function(req, res, next) {
+	console.log("here")
 	const filteredData = data.filter((d) => d.loan_number = req.body.loanNumber);
 	res.json(filteredData);
 })

@@ -6,9 +6,10 @@ window.onload = function () {
 
   searchElement.addEventListener("keydown", (event) => {
     var attribute = select.value;
+    console.log(searchElement.value)
     if (attribute === "loan-number") {
-      fetch("http://localhost:3000/loanNumber", searchElement.value)
-        .then((response) => response.json())
+      axios.get("http://localhost:3000/loanNumber", searchElement.value)
+        .then((response) => console.log(response))
         .then((data) => (loans = data));
     } else if (attribute === "first-name") {
       fetch("http://localhost:3000/firstName", searchElement.value)
