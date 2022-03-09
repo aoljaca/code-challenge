@@ -2,12 +2,28 @@
 
 <head>
   <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+  <div>
+    <header class="header">
+      <h1>Spring EQ</h1>
+    </header>
+    <div class="d-flex justify-center align-center">
+      <form action="/action_page.php" class="ma-0 mr-5 d-flex justify-center align-center">
+        <label for="cars">Choose an attribute:</label>
+        <select name="cars" id="cars">
+          <option value="volvo">Loan Number</option>
+          <option value="saab">First Name</option>
+          <option value="opel">Last Name</option>
+          <option value="audi">City</option>
+        </select>
+        <br><br>
+      </form>
+      <input type="text" placeholder="Search..">
+    </div>
+  </div>
 </body>
 
 </html>
