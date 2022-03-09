@@ -12,18 +12,21 @@
     </header>
     <div class="d-flex justify-center align-center">
       <form action="/action_page.php" class="ma-0 mr-5 d-flex justify-center align-center">
-        <label for="cars">Choose an attribute:</label>
-        <select name="cars" id="cars">
-          <option value="volvo">Loan Number</option>
-          <option value="saab">First Name</option>
-          <option value="opel">Last Name</option>
-          <option value="audi">City</option>
+        <label for="attribute" class="mr-5">Choose an attribute:</label>
+        <select name="attribute" id="attribute">
+          <option value="loan-number">Loan Number</option>
+          <option value="first-name">First Name</option>
+          <option value="last-name">Last Name</option>
+          <option value="city">City</option>
         </select>
         <br><br>
       </form>
-      <input type="text" placeholder="Search..">
+      <input type="text" placeholder="Search.." id="search">
+    </div>
+    <div id="loans">
     </div>
   </div>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
