@@ -1,44 +1,48 @@
 body {
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-	color: #00B7FF;
+  color: #00b7ff;
 }
 
 .d-flex {
-	display: flex;
+  display: flex;
 }
 
 .justify-center {
-	justify-content: center;
+  justify-content: center;
 }
 
 .header {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .align-center {
-	align-items: center;
+  align-items: center;
 }
 
 .ma-0 {
-	margin: 0;
+  margin: 0;
 }
 
 .ma-10 {
-	margin: 10px;
+  margin: 10px;
 }
 
 .mr-5 {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .border-outer {
-	border: 10px black solid;
+  border: 10px black solid;
 }
 
 .border {
-	border: 5px red solid;
+  border: 5px red solid;
+}
+
+.d-none {
+  display: none;
 }

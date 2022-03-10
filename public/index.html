@@ -1,32 +1,32 @@
 <html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <title>Express</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-  <div>
-    <header class="header">
-      <h1>Spring EQ</h1>
-    </header>
-    <div class="d-flex justify-center align-center">
-      <form action="/action_page.php" class="ma-0 mr-5 d-flex justify-center align-center">
-        <label for="attribute" class="mr-5">Choose an attribute:</label>
-        <select name="attribute" id="attribute">
-          <option value="loan-number">Loan Number</option>
-          <option value="first-name">First Name</option>
-          <option value="last-name">Last Name</option>
-          <option value="city">City</option>
-        </select>
-        <br><br>
-      </form>
-      <input type="text" placeholder="Search.." id="search">
+  <body>
+    <div>
+      <header class="header">
+        <h1>Spring EQ</h1>
+      </header>
+      <div class="d-flex justify-center align-center">
+        <form
+          action="/action_page.php"
+          class="ma-0 mr-5 d-flex justify-center align-center"
+        >
+          <label for="attribute" class="mr-5">Choose an attribute:</label>
+          <select name="attribute" id="attribute">
+            <option value="loan-number">Loan Number</option>
+            <option value="first-name">First Name</option>
+            <option value="last-name">Last Name</option>
+            <option value="city">City</option>
+          </select>
+          <br /><br />
+        </form>
+        <input type="text" placeholder="Search.." id="search" />
+      </div>
+      <div id="loans"></div>
     </div>
-    <div id="loans">
-    </div>
-  </div>
-  <script src="./js/index.js" type="module"></script>
-</body>
-
+    <script src="./js/index.js" type="module"></script>
+  </body>
 </html>

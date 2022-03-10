@@ -40,36 +40,63 @@ window.onload = function () {
     let html = "";
     if (loans) {
       loans.forEach((l) => {
-        const toAdd = `<div class="d-flex border-outer align-center ma-10">
+        const toAdd = `<div class="border-outer ma-10"><div class="d-flex align-center">
       <div class="d-flex mr-5 border">
-        <h3>Loan Number:</h3>
+        <h3>Loan Number: </h3>
         <h3>${l.loan_number}</h3>
       </div>
       <div class="d-flex mr-5 border">
-        <h3>First Name:</h3>
+        <h3>First Name: </h3>
         <h3>${l.first_name}</h3>
       </div>
       <div class="d-flex mr-5 border">
-        <h3>Last Name:</h3>
+        <h3>Last Name: </h3>
         <h3>${l.last_name}</h3>
       </div>
       <div class="d-flex mr-5 border">
-        <h3>State:</h3>
+        <h3>State: </h3>
         <h3>${l.state}</h3>
       </div>
-      <div><button id="seeAll${l.id}">See All</button></div>
-    </div>`;
+      <div><button id="seeAll${l.id}" onclick="onSeeAll(${l.id})">See All</button></div>
+    </div>
+    <div class="d-flex align-center d-none" id="changeDisplay${l.id}">
+      <div class="d-flex mr-5 border">
+        <h3>Id: </h3>
+        <h3>${l.id}</h3>
+      </div>
+      <div class="d-flex mr-5 border">
+        <h3>Email: </h3>
+        <h3>${l.email}</h3>
+      </div>
+      <div class="d-flex mr-5 border">
+        <h3>Address: </h3>
+        <h3>${l.address}</h3>
+      </div>
+      <div class="d-flex mr-5 border">
+        <h3>City: </h3>
+        <h3>${l.city}</h3>
+      </div>
+      <div class="d-flex mr-5 border">
+        <h3>Zip: </h3>
+        <h3>${l.zip}</h3>
+      </div>
+    </div></div>`;
         html += toAdd;
-        loansHTML.innerHTML = html;
-        document.getElementById(`seeAll${l.id}`).addEventListener("cick", () => {
-          onSeeAll(l.id);
-        })
       });
     }
     loansHTML.innerHTML = html;
     return;
   }
   function onSeeAll(id) {
-    console.log("hey");
+    console.log(id);
+    let display = document.getElementById(`changeDisplay${id}`).style.display;
+    if (display === "block") {
+      document.getElementById(`changeDisplay${id}`).style.display = "none";
+      document.getElementById(`seeAll${id}`).innerHTML = "See All";
+    } else {
+      document.getElementById(`changeDisplay${id}`).style.display = "block";
+      document.getElementById(`seeAll${id}`).innerHTML = "See Less";
+    }
   }
+  window.onSeeAll = onSeeAll;
 };
