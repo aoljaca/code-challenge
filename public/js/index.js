@@ -19,23 +19,25 @@ window.onload = function () {
         .then((data) => (loans = data))
         .then(() => addHTML());
     } else if (attribute === "first-name") {
-      fetch("http://localhost:3000/firstName", searchElement.value)
+      fetch("http://localhost:3000/data/firstName", params)
         .then((response) => response.json())
-        .then((data) => (loans = data));
+        .then((data) => (loans = data))
+        .then(() => addHTML());
     } else if (attribute === "last-name") {
-      fetch("http://localhost:3000/lastName", searchElement.value)
+      fetch("http://localhost:3000/data/lastName", params)
         .then((response) => response.json())
-        .then((data) => (loans = data));
+        .then((data) => (loans = data))
+        .then(() => addHTML());
     } else {
-      fetch("http://localhost:3000/city", searchElement.value)
+      fetch("http://localhost:3000/data/city", params)
         .then((response) => response.json())
-        .then((data) => (loans = data));
+        .then((data) => (loans = data))
+        .then(() => addHTML());
     }
   });
 
   function addHTML() {
     let html = "";
-    console.log(loans);
     if (loans) {
       loans.forEach((l) => {
         const toAdd = `<div class="d-flex border-outer align-center ma-10">
@@ -55,13 +57,19 @@ window.onload = function () {
         <h3>State:</h3>
         <h3>${l.state}</h3>
       </div>
-      <div><button>See All</button></div>
+      <div><button id="seeAll${l.id}">See All</button></div>
     </div>`;
         html += toAdd;
+        loansHTML.innerHTML = html;
+        document.getElementById(`seeAll${l.id}`).addEventListener("cick", () => {
+          onSeeAll(l.id);
+        })
       });
     }
-    console.log(html);
     loansHTML.innerHTML = html;
     return;
+  }
+  function onSeeAll(id) {
+    console.log("hey");
   }
 };
