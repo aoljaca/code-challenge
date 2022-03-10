@@ -27,6 +27,18 @@ a {
 	margin: 0;
 }
 
+.ma-10 {
+	margin: 10px;
+}
+
 .mr-5 {
 	margin-right: 5px;
+}
+
+.border-outer {
+	border: 10px black solid;
+}
+
+.border {
+	border: 5px red solid;
 }

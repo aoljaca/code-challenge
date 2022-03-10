@@ -38,23 +38,24 @@ window.onload = function () {
     console.log(loans);
     if (loans) {
       loans.forEach((l) => {
-        const toAdd = `<div class="d-flex">
-      <div class="d-flex mr-5">
+        const toAdd = `<div class="d-flex border-outer align-center ma-10">
+      <div class="d-flex mr-5 border">
         <h3>Loan Number:</h3>
         <h3>${l.loan_number}</h3>
       </div>
-      <div class="d-flex mr-5">
+      <div class="d-flex mr-5 border">
         <h3>First Name:</h3>
         <h3>${l.first_name}</h3>
       </div>
-      <div class="d-flex mr-5">
+      <div class="d-flex mr-5 border">
         <h3>Last Name:</h3>
         <h3>${l.last_name}</h3>
       </div>
-      <div class="d-flex mr-5">
-        <h3>City:</h3>
-        <h3>${l.city}</h3>
+      <div class="d-flex mr-5 border">
+        <h3>State:</h3>
+        <h3>${l.state}</h3>
       </div>
+      <div><button>See All</button></div>
     </div>`;
         html += toAdd;
       });
