@@ -4,13 +4,20 @@ window.onload = function () {
   var loansHTML = document.getElementById("loans");
   var loans = [];
 
-  searchElement.addEventListener("keydown", (event) => {
+  searchElement.addEventListener("keyup", (event) => {
     var attribute = select.value;
-    console.log(searchElement.value)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    let params = {
+      method: "POST",
+      body: JSON.stringify(searchElement.value),
+      headers: myHeaders,
+    };
     if (attribute === "loan-number") {
-      axios.get("http://localhost:3000/loanNumber", searchElement.value)
-        .then((response) => console.log(response))
-        .then((data) => (loans = data));
+      fetch("http://localhost:3000/data/loanNumber", params)
+        .then((response) => response.json())
+        .then((data) => (loans = data))
+        .then(() => addHTML());
     } else if (attribute === "first-name") {
       fetch("http://localhost:3000/firstName", searchElement.value)
         .then((response) => response.json())
@@ -24,29 +31,36 @@ window.onload = function () {
         .then((response) => response.json())
         .then((data) => (loans = data));
     }
-    const html = '';
-    loans.forEach((loan) => {
-      const toAdd = `<div>
-      <div class="d-flex">
+  });
+
+  function addHTML() {
+    let html = "";
+    console.log(loans);
+    if (loans) {
+      loans.forEach((l) => {
+        const toAdd = `<div class="d-flex">
+      <div class="d-flex mr-5">
         <h3>Loan Number:</h3>
-        <h3>{l.loan_number}</h3>
+        <h3>${l.loan_number}</h3>
       </div>
-      <div class="d-flex">
+      <div class="d-flex mr-5">
         <h3>First Name:</h3>
-        <h3>{l.first_name}</h3>
+        <h3>${l.first_name}</h3>
       </div>
-      <div class="d-flex">
+      <div class="d-flex mr-5">
         <h3>Last Name:</h3>
-        <h3>{l.last_name}</h3>
+        <h3>${l.last_name}</h3>
       </div>
-      <div class="d-flex">
+      <div class="d-flex mr-5">
         <h3>City:</h3>
-        <h3>{l.city}</h3>
+        <h3>${l.city}</h3>
       </div>
     </div>`;
-    html += toAdd;
-    });
-    loansHTML = html;
+        html += toAdd;
+      });
+    }
+    console.log(html);
+    loansHTML.innerHTML = html;
     return;
-  });
+  }
 };

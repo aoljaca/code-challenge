@@ -14,48 +14,48 @@ router.get("/data", function(req, res, next) {
 })
 
 router.get("/data/:id", function(req, res, next) {
-	const filteredData = data.filter((d) => d.id = req.body.id);
+	const filteredData = data.filter((d) => d.id.startsWith(req.body.id));
 	res.json(filteredData);
 })
 
 router.get("/data/:firstName", function(req, res, next) {
-	const filteredData = data.filter((d) => d.first_name = req.body.firstName);
+	const filteredData = data.filter((d) => d.first_name.startsWith(req.body.firstName));
 	res.json(filteredData);
 })
 
 router.get("/data/:lastName", function(req, res, next) {
-	const filteredData = data.filter((d) => d.last_name = req.body.lastName);
+	const filteredData = data.filter((d) => d.last_name.startsWith(req.body.lastName));
 	res.json(filteredData);
 })
 
 router.get("/data/:email", function(req, res, next) {
-	const filteredData = data.filter((d) => d.email = req.body.email);
+	const filteredData = data.filter((d) => d.email.startsWith(req.body.email));
 	res.json(filteredData);
 })
 
 router.get("/data/:address", function(req, res, next) {
-	const filteredData = data.filter((d) => d.address = req.body.address);
+	const filteredData = data.filter((d) => d.address.startsWith(req.body.address));
 	res.json(filteredData);
 })
 
 router.get("/data/:city", function(req, res, next) {
-	const filteredData = data.filter((d) => d.city = req.body.city);
+	const filteredData = data.filter((d) => d.city.startsWith(req.body.city));
 	res.json(filteredData);
 })
 
 router.get("/data/:state", function(req, res, next) {
-	const filteredData = data.filter((d) => d.state = req.body.state);
+	const filteredData = data.filter((d) => d.state.startsWith(req.body.state));
 	res.json(filteredData);
 })
 
 router.get("/data/:zip", function(req, res, next) {
-	const filteredData = data.filter((d) => d.zip = req.body.zip);
+	const filteredData = data.filter((d) => d.zip.startsWith(req.body.zip));
 	res.json(filteredData);
 })
 
-router.get("/data/:loanNumber", function(req, res, next) {
-	console.log("here")
-	const filteredData = data.filter((d) => d.loan_number = req.body.loanNumber);
+router.post("/data/loanNumber", function(req, res, next) {
+	console.log(data)
+	const filteredData = data.filter((d) => d.loan_number.startsWith(req.body));
 	res.json(filteredData);
 })
 
