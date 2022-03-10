@@ -88,7 +88,6 @@ window.onload = function () {
     return;
   }
   function onSeeAll(id) {
-    console.log(id);
     let display = document.getElementById(`changeDisplay${id}`).style.display;
     if (display === "block") {
       document.getElementById(`changeDisplay${id}`).style.display = "none";

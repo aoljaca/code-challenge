@@ -14,7 +14,6 @@ router.get("/data", function (req, res, next) {
 });
 
 router.post("/data/firstName", function (req, res, next) {
-  console.log(data);
   const filteredData = data.filter((d) =>
     d.first_name.toLowerCase().startsWith(req.body)
   );
